@@ -88,7 +88,7 @@ def load_and_combine_fold_data(base_path: Path, num_folds: int) -> pd.DataFrame:
 
 def create_publication_plots(df: pd.DataFrame, save_dir: Path):
     """
-    Generates various PhD-level publication-ready plots.
+    Generates various publication-ready plots.
 
     Args:
         df (pd.DataFrame): Combined DataFrame containing all fold data.
@@ -322,7 +322,7 @@ def generate_statistical_summary(df: pd.DataFrame, save_dir: Path):
     logger.info(f"Statistical summary saved to: {summary_path}")
 
 def main_performance_graphs():
-    parser = argparse.ArgumentParser(description="Generate PhD-level performance graphs and statistical summaries.")
+    parser = argparse.ArgumentParser(description="Generate performance graphs and statistical summaries.")
     parser.add_argument("--data_base_dir", type=str, required=True,
                         help="Base directory containing fold-wise results (e.g., 'classification_checkpoints' or 'segmentation_checkpoints').")
     parser.add_argument("--num_folds", type=int, default=5,
@@ -341,7 +341,7 @@ def main_performance_graphs():
         logger.error("Failed to load any data. Please check data_base_dir and num_folds.")
         return
 
-    logger.info("\nGenerating PhD-level visualizations...")
+    logger.info("\nGenerating visualizations...")
     create_publication_plots(combined_data, output_dir)
     
     logger.info("\nGenerating statistical summary...")
